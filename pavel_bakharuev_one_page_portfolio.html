@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pavel Bakharuev — Business Analyst / Product Owner</title>
+  <meta name="description" content="Pavel Bakharuev — Business Analyst / Product Owner. Requirements, BPMN/UML, compliance, backlog, documentation." />
+  <meta property="og:title" content="Pavel Bakharuev — Business Analyst / Product Owner" />
+  <meta property="og:description" content="Requirements management • BPMN/UML • Acceptance criteria • Compliance • Product backlog" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1020; /* slate-950 */
+      --card: rgba(15, 23, 42, .72); /* slate-900 alpha */
+      --text: #e5e7eb; /* gray-200 */
+      --muted: #94a3b8; /* slate-400 */
+      --brand: #60a5fa; /* blue-400 */
+      --accent: #a78bfa; /* violet-400 */
+      --ok: #34d399; /* emerald-400 */
+      --ring: rgba(99,102,241,.35);
+      --shadow: 0 10px 30px rgba(2,6,23,.45), 0 2px 6px rgba(2,6,23,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text); background: radial-gradient(1200px 800px at 20% -10%, #1f2937 0%, rgba(31,41,55,0) 60%),
+                          radial-gradient(900px 600px at 120% 0%, #1d4ed8 0%, rgba(29,78,216,0) 55%),
+                          radial-gradient(1000px 600px at -10% 90%, #6d28d9 0%, rgba(109,40,217,0) 60%),
+                          var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .container{max-width:1100px; margin:0 auto; padding:24px}
+    header{position:relative; padding:24px; margin:20px auto 32px; border-radius:24px; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); box-shadow:var(--shadow); backdrop-filter: blur(10px); border:1px solid rgba(255,255,255,.1)}
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; font-size:12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; background:rgba(99,102,241,.12)}
+    h1{margin:.2rem 0 .6rem; font-weight:900; letter-spacing:.2px; font-size:clamp(28px, 5vw, 48px)}
+    .subtitle{font-weight:600; font-size:clamp(16px, 2.2vw, 20px); color:var(--muted)}
+    .cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; text-decoration:none; font-weight:600; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(59,130,246,.18), rgba(96,165,250,.08)); box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 12px 30px rgba(59,130,246,.25)}
+    .btn.secondary{background:linear-gradient(180deg, rgba(167,139,250,.18), rgba(167,139,250,.06))}
+    .meta{display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; color:var(--muted); font-size:14px}
+    .meta span{display:inline-flex; gap:8px; align-items:center}
+    .photo{justify-self:end; width:min(280px, 90%); height:280px; border-radius:24px; background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.12); box-shadow:var(--shadow); position:relative; overflow:hidden}
+    .glow{position:absolute; inset:-40%; background:radial-gradient(closest-side, rgba(96,165,250,.35), rgba(96,165,250,0)); filter:blur(30px); animation:pulse 6s ease-in-out infinite}
+    @keyframes pulse{0%,100%{transform:translate(-10%, -10%) scale(1)} 50%{transform:translate(8%, 6%) scale(1.12)}}
+
+    main{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    section{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:22px; box-shadow:var(--shadow); backdrop-filter: blur(6px)}
+    section h2{margin:0 0 10px; font-size:20px; letter-spacing:.3px}
+    .stack{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{padding:8px 12px; border:1px solid rgba(255,255,255,.14); border-radius:999px; background:rgba(148,163,184,.12); font-size:13px}
+
+    .timeline{display:grid; gap:16px}
+    .item{display:grid; grid-template-columns:120px 1fr; gap:14px; align-items:start}
+    .when{font:600 12px/1 Inter; color:var(--muted)}
+    .where{font:600 14px/1.3 Inter}
+    .role{color:var(--muted); margin:.2rem 0 .4rem}
+    .bullets{margin:0; padding-left:18px}
+    .bullets li{margin:.18rem 0}
+
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .card{border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:14px; background:rgba(2,6,23,.35)}
+
+    footer{opacity:.8; text-align:center; margin:26px 0 12px; font-size:13px; color:var(--muted)}
+    .divider{height:1px; background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.18), rgba(255,255,255,0)); margin:18px 0}
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr;}
+      .photo{justify-self:stretch; height:190px}
+      main{grid-template-columns:1fr}
+      .item{grid-template-columns:1fr}
+    }
+
+    /* Print-friendly */
+    @media print{
+      body{background:#fff; color:#111}
+      header, section{box-shadow:none; border-color:#e5e7eb; background:#fff}
+      .photo, .glow{display:none}
+      a[href]:after{content:" (" attr(href) ")"; font-weight:400; font-size:12px}
+    }
+  </style>
+  <script>
+    // tiny helper to copy email/phone quickly
+    function copy(text){navigator.clipboard.writeText(text); const t=document.getElementById('toast'); t.style.opacity=1; setTimeout(()=>t.style.opacity=0, 1400)}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pavel Bakharuev",
+    "jobTitle": "Business Analyst / Product Owner",
+    "email": "mailto:pavel5609s@gmail.com",
+    "telephone": "+35797834880",
+    "address": {"@type":"PostalAddress","addressLocality":"Limassol","addressCountry":"Cyprus"},
+    "sameAs": ["https://t.me/pavelbaharuev"]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="hero">
+        <div>
+          <span class="badge">Open to work · Product / BA</span>
+          <h1>Pavel Bakharuev</h1>
+          <p class="subtitle">Business Analyst & Product Owner focused on requirements, compliance, and delivery.</p>
+          <div class="cta">
+            <a class="btn" href="mailto:pavel5609s@gmail.com" aria-label="Email Pavel">📧 Email</a>
+            <a class="btn secondary" href="tel:+35797834880" aria-label="Call Pavel">📞 Call</a>
+            <a class="btn" href="https://t.me/pavelbaharuev" target="_blank" rel="noopener" aria-label="Telegram profile">💬 Telegram</a>
+            <a class="btn secondary" href="#resume" aria-label="Jump to resume">📄 Resume</a>
+          </div>
+          <div class="meta">
+            <span>📍 Limassol, Cyprus</span>
+            <span>🗣️ English C1 (IELTS 7.0)</span>
+          </div>
+        </div>
+        <div class="photo" aria-hidden="true">
+          <div class="glow"></div>
+        </div>
+      </div>
+    </header>
+
+    <main id="resume">
+      <section>
+        <h2>Summary</h2>
+        <p>Business Analyst with 4+ years in requirements management, system analysis, and documentation. Skilled in user stories, use cases, acceptance criteria, BPMN & UML, and requirements lifecycle management. Experienced in cross‑team collaboration and ensuring solution compliance with business and legal needs.</p>
+        <div class="divider"></div>
+        <div class="stack">
+          <span class="chip">Requirements • Backlog</span>
+          <span class="chip">BPMN</span>
+          <span class="chip">UML</span>
+          <span class="chip">Acceptance Criteria</span>
+          <span class="chip">Compliance</span>
+          <span class="chip">Documentation</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="when">Apr 2025 — Present</div>
+            <div>
+              <div class="where">Product Owner — BrainRocket · Limassol, Cyprus</div>
+              <div class="role">Backlog • Compliance • Stakeholder comms</div>
+              <ul class="bullets">
+                <li>Manage & refine product backlog by business and regulatory objectives.</li>
+                <li>Define acceptance criteria and verify delivered functionality; lead refinements with dev team.</li>
+                <li>Collaborate with Product, Risk & Compliance, and partner dev teams to achieve sprint goals.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">May 2024 — Apr 2025</div>
+            <div>
+              <div class="where">Senior Business Analyst — Ozon Tech (Largest marketplace in EE) · Remote</div>
+              <ul class="bullets">
+                <li>Owned warehouse account services, order picking task generation, and employee access control.</li>
+                <li>Gathered requirements with warehouses using BPMN/UML; delivered 10+ features to boost efficiency.</li>
+                <li>Provided detailed requirements to BE/FE teams; ran regular refinement sessions.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">Jul 2023 — May 2024</div>
+            <div>
+              <div class="where">Business Analyst — Ozon Tech · Remote</div>
+              <ul class="bullets">
+                <li>Active community contributor; ran a meetup on preparation for E2E & UAT testing.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">Apr 2022 — May 2023</div>
+            <div>
+              <div class="where">Junior System Analyst — DOM.RF · Moscow, Russia</div>
+              <ul class="bullets">
+                <li>Built requirements process ensuring accurate implementation during development.</li>
+                <li>Prepared/validated technical specs aligned with business goals; launched 3 citizen‑facing IT products.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">Jan 2022 — Apr 2022</div>
+            <div>
+              <div class="where">Intern System Analyst — Fix Price · Moscow, Russia</div>
+              <ul class="bullets">
+                <li>Worked on e‑store CRM: Logistics, Billing, Taxation in a 10‑member team.</li>
+                <li>Authored backend/frontend tasks incl. integration contracts (REST/SOAP) & DB models (UML/ER).</li>
+                <li>Provided 3rd‑line support to resolve incidents and drive fixes.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="item">
+            <div class="when">Jan 2021 — Dec 2021</div>
+            <div>
+              <div class="where">Intern Web Developer — Mirrico · Kazan, Russia</div>
+              <ul class="bullets">
+                <li>Built a web platform for HR to assess candidate profiles.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="grid-3">
+          <div class="card">
+            <strong>University of Genova</strong><br/>
+            MSc Engineering for Strategy & Security (GPA 25/30)<br/>
+            <span class="when">Sep 2024 — Present · Genova, Italy</span>
+          </div>
+          <div class="card">
+            <strong>Innopolis University</strong><br/>
+            BSc Computer Science (GPA 4.5/5.0)<br/>
+            <span class="when">Sep 2020 — Jun 2024 · Innopolis, Russia</span>
+          </div>
+          <div class="card">
+            <strong>Mentorship</strong><br/>
+            Yandex Practicum — Mentor (System/BA courses)<br/>
+            <span class="when">Apr 2025 — Present</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="stack">
+          <span class="chip">Java (basics)</span>
+          <span class="chip">Python (advanced)</span>
+          <span class="chip">SQL (advanced)</span>
+          <span class="chip">C# (basics)</span>
+          <span class="chip">Git</span>
+          <span class="chip">gRPC</span>
+          <span class="chip">REST API</span>
+          <span class="chip">SOAP API</span>
+          <span class="chip">Kafka</span>
+          <span class="chip">Jira</span>
+          <span class="chip">Confluence</span>
+          <span class="chip">Markdown</span>
+          <span class="chip">UML</span>
+          <span class="chip">BPMN</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+          <button class="btn" onclick="copy('pavel5609s@gmail.com')">Copy Email</button>
+          <button class="btn secondary" onclick="copy('+35797834880')">Copy Phone</button>
+        </div>
+        <div id="toast" style="transition:.3s; opacity:0; margin-top:10px; font-size:14px; color:var(--ok)">Copied to clipboard ✓</div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="y"></span> Pavel Bakharuev — Built with ♥️. Print‑friendly.
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
