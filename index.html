@@ -54,9 +54,55 @@
     /* Back to top */
     .to-top{ position:fixed; right:16px; bottom:16px; z-index:1040; display:none; }
     .to-top.show{ display:block; }
-  </style>
-</head>
-<body>
+    </style>
+  </head>
+  <body>
+    <!-- Promo Modal -->
+          <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="promoModalLabel">Yandex Practicum — Promocode</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column align-items-center gap-3">
+            <p class="mb-0 text-center">Use the promocode below to get 15% discount on Yandex Practicum courses.</p>
+            <div class="input-group w-100" style="max-width:320px;">
+            <input id="promoCodeInput" class="form-control text-center fw-semibold" value=" YAFRIENDNASTAVNIKA642544606643" readonly>
+            <button class="btn btn-primary" id="copyPromoBtn" type="button">Copy</button>
+            </div>
+            <div style="position:relative; min-height:24px;">
+              <small id="promoCopied" class="text-success d-none" style="position:absolute; left:50%; transform:translateX(-50%);">Copied</small>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="https://practicum.yandex.ru" class="btn btn-success" target="_blank" rel="noopener">Go to Yandex Practicum</a>
+                  </div>
+                  </div>
+                </div>
+                </div>
+
+                <script>
+                (function(){
+                  const copyBtn = document.getElementById('copyPromoBtn');
+                  const promoInput = document.getElementById('promoCodeInput');
+                  const copiedMsg = document.getElementById('promoCopied');
+                  copyBtn.addEventListener('click', async () => {
+                  try {
+                    await navigator.clipboard.writeText(promoInput.value);
+                    copiedMsg.classList.remove('d-none');
+                    setTimeout(()=>copiedMsg.classList.add('d-none'), 1800);
+                  } catch (e) {
+                    // fallback
+                    promoInput.select();
+                    document.execCommand('copy');
+                    copiedMsg.classList.remove('d-none');
+                    setTimeout(()=>copiedMsg.classList.add('d-none'), 1800);
+                  }
+                  });
+                })();
+                </script></div>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm">
     <div class="container">
@@ -86,7 +132,7 @@
     <div class="container position-relative">
       <div class="row align-items-center g-4">
         <div class="col-12 col-md-auto text-center text-md-start">
-          <img src="ava.png" alt="Avatar" class="hero-photo border" />
+          <img src="ava_2.jpg" alt="Avatar" class="hero-photo border" />
         </div>
         <div class="col">
           <div class="glass rounded-4 p-4 p-md-5 shadow-sm">
@@ -289,7 +335,10 @@
                 <li>Conduct workshops on writing requirements, UML/BPMN, REST, Kafka, SQL.</li>
                 <li>Provide student support and Q&amp;A.</li>
               </ul>
-              <a href="https://practicum.yandex.ru">Go to Yandex Practicum</a>
+                <!-- Promo modal trigger -->
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#promoModal">
+                Go to study
+                </button>
             </div>
           </div>
         </div>
